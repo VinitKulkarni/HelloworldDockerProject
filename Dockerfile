@@ -1,3 +1,11 @@
-# website::tag::1:: Build a simple Docker image that contains a text file with the contents "Hello, World!"
-FROM ubuntu:18.04
-RUN echo 'Hello, World!' > /test.txt
+# Use the official Python image from the Docker Hub
+FROM python:3.9-slim
+
+# Set the working directory
+WORKDIR /app
+
+# Copy the Python script into the container
+COPY app.py .
+
+# Command to run the application
+CMD ["python", "app.py"]
