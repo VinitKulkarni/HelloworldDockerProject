@@ -1,11 +1,8 @@
-# Use the official Python image from the Docker Hub
-FROM python:3.9-slim
+# Use the official nginx image
+FROM nginx:alpine
 
-# Set the working directory
-WORKDIR /app
+# Copy the HTML file to the nginx server
+COPY index.html /usr/share/nginx/html/
 
-# Copy the Python script into the container
-COPY app.py .
-
-# Command to run the application
-CMD ["python", "app.py"]
+# Expose port 80
+EXPOSE 80
